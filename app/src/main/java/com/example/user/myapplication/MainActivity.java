@@ -3,7 +3,7 @@ package com.example.user.myapplication;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import java.util.ArrayList;
@@ -18,9 +18,11 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         RecyclerView recycle=(RecyclerView)findViewById(R.id.recycler_view);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
-
-        recycle.setLayoutManager(mLayoutManager);
+       // RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+        //recycle.addItemDecoration(new MarginDecoration(this));
+       // recycle.setHasFixedSize(true);
+        recycle.setLayoutManager(new GridLayoutManager(this, 2));
+        //recycle.setLayoutManager(mLayoutManager);
         mAdapter = new MoviesAdapter(movieList);
         recycle.setAdapter(mAdapter);
         prepareMovieData();
